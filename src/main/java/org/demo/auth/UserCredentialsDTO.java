@@ -1,11 +1,18 @@
 package org.demo.auth;
 
+import java.io.Serializable;
+
 /**
  * Created by amritagarwal on 23/07/17.
  */
-public class UserCredentialsDTO {
+
+public class UserCredentialsDTO  {
     private String username;
     private String password;
+    
+    public UserCredentialsDTO() {
+    	
+    }
 
     public UserCredentialsDTO(String username, String password) {
         this.username = username;

@@ -1,6 +1,5 @@
 package org.demo.auth;
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,8 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/")
 public class TokenController {
 
-    @RequestMapping(value = "tokens", method = RequestMethod.PATCH)
-    public ResponseEntity<TokenDTO> create(@RequestBody @NotNull UserCredentialsDTO userCredentialsDTO) {
-        return new ResponseEntity<TokenDTO>(new TokenDTO(userCredentialsDTO.getUsername()+userCredentialsDTO.getPassword()), HttpStatus.OK);
-    }
+	@RequestMapping(value = "tokens", method = RequestMethod.POST)
+	public ResponseEntity<TokenDTO> create(@RequestBody UserCredentialsDTO userCredentialsDTO) {
+		return new ResponseEntity<TokenDTO>(
+				new TokenDTO(userCredentialsDTO.getUsername() + userCredentialsDTO.getPassword()), HttpStatus.OK);
+	}
 }
